@@ -28,4 +28,9 @@ public class EnemyMover : MonoBehaviour
     { 
         return (Random.insideUnitCircle * _distance) + (Vector2)_player.transform.position;
     }
+
+    public void Died()
+    {
+        Destroy(gameObject);
+    }
 }

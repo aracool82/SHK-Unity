@@ -23,14 +23,6 @@ public class Player : MonoBehaviour
             }
         }
 
-        var result = FindObjectsOfType<EnemyMover>();
-
-        if(result.Length == 0)
-        {
-            GameController.controller.End();
-            enabled = false;
-        }
-
         if (Input.GetKey(KeyCode.W))
             transform.Translate(0, _speed * Time.deltaTime, 0);
 
@@ -44,16 +36,16 @@ public class Player : MonoBehaviour
             transform.Translate(_speed * Time.deltaTime, 0, 0);
     }
 
-    public void SendMEssage(GameObject b)
-    {
-        if(b.name == "enemy")
-            Destroy(b);
+    //public void SendMEssage(GameObject b)
+    //{
+    //    if(b.name == "enemy")
+    //        Destroy(b);
         
-        if(b.name == "speed")
-        {
-            _speed *= 2;
-            _isTimer = true;
-            _time = 2;
-        }
-    }
+    //    if(b.name == "speed")
+    //    {
+    //        _speed *= 2;
+    //        _isTimer = true;
+    //        _time = 2;
+    //    }
+    //}
 }
