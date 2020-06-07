@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
@@ -10,7 +8,6 @@ public class GameController : MonoBehaviour
     public GameObject a;
     public GameObject[] B;
 
-    // Start is called before the first frame update
     void Start()
     {
         controller = this;
@@ -21,8 +18,8 @@ public class GameController : MonoBehaviour
         go.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update(){
+    void Update()
+    {
         foreach (var b in B)
         {
             if (b == null)
@@ -32,7 +29,6 @@ public class GameController : MonoBehaviour
                 {
                     a.SendMessage("SendMEssage", b);
                 }
-
         }
     }
 }
