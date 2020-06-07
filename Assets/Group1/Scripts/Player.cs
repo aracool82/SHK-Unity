@@ -2,50 +2,23 @@
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float _speed;
-    [SerializeField] private bool _isTimer;
-    [SerializeField] private float _time;
+    [SerializeField] private float _speed=5;
+    [SerializeField] private GameLogic _gameLogic;
 
-    private void Awake()
+    private void Update()
     {
+        if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0 ||
+            _gameLogic.IsEndGame)
+            return;
         
+        var horizontal = Input.GetAxis("Horizontal");
+        var vertical = Input.GetAxis("Vertical");
+        var direction = new Vector3(horizontal, vertical, 0) * _speed * Time.deltaTime;
+        Move(direction);
     }
 
-    void Update()
+    private void Move(Vector3 direction)
     {
-        if (_isTimer)
-        {
-            _time -= Time.deltaTime;
-            if(_time < 0)
-            {
-                _isTimer = false;
-                _speed /= 2;
-            }
-        }
-
-        if (Input.GetKey(KeyCode.W))
-            transform.Translate(0, _speed * Time.deltaTime, 0);
-
-        if (Input.GetKey(KeyCode.S))
-            transform.Translate(0, -_speed * Time.deltaTime, 0);
-
-        if (Input.GetKey(KeyCode.A))
-            transform.Translate(-_speed * Time.deltaTime, 0, 0);
-
-        if (Input.GetKey(KeyCode.D))
-            transform.Translate(_speed * Time.deltaTime, 0, 0);
+        transform.Translate(direction);
     }
-
-    //public void SendMEssage(GameObject b)
-    //{
-    //    if(b.name == "enemy")
-    //        Destroy(b);
-        
-    //    if(b.name == "speed")
-    //    {
-    //        _speed *= 2;
-    //        _isTimer = true;
-    //        _time = 2;
-    //    }
-    //}
 }
