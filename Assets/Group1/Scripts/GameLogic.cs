@@ -5,9 +5,9 @@ public class GameLogic : MonoBehaviour
 {
     [SerializeField] private GameObject _endGame;
     [SerializeField] private Player _player;
-    [SerializeField] private  List<EnemyMover> _enemys;
+    [SerializeField] private  List<EnemyMover> _enemies;
     [SerializeField] private float _distance = 0.3f;
-    public bool IsEndGame => _enemys.Count == 0;
+    public bool IsEndGame => _enemies.Count == 0;
     
     private void EndGame()
     {
@@ -23,12 +23,12 @@ public class GameLogic : MonoBehaviour
         }
         else
         { 
-            for (int i = 0; i < _enemys.Count; i++)
+            for (int i = 0; i < _enemies.Count; i++)
             {
-                if (Vector3.Distance(_player.transform.position, _enemys[i].transform.position) <  _distance)
+                if (Vector3.Distance(_player.transform.position, _enemies[i].transform.position) <  _distance)
                 {
-                    _enemys[i].Died();
-                    _enemys.RemoveAt(i);
+                    _enemies[i].Died();
+                    _enemies.RemoveAt(i);
                 }
             }
         }
