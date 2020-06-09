@@ -2,12 +2,12 @@
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Collections;
+
 public class EndGame : MonoBehaviour
 {
     [SerializeField] private List<CollisionDetect> _enemies;
     [SerializeField] private GameObject _finishSreen;
     private int countCollision = 0;
-
 
     public IEnumerator ReloadScene()
     {
