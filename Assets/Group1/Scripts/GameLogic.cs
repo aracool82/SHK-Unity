@@ -27,7 +27,7 @@ public class GameLogic : MonoBehaviour
             {
                 if (Vector3.Distance(_player.transform.position, _enemies[i].transform.position) <  _distance)
                 {
-                    _enemies[i].Died();
+                    _enemies[i].Die();
                     _enemies.RemoveAt(i);
                 }
             }

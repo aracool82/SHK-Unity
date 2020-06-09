@@ -3,8 +3,8 @@
 public class EnemyMover : MonoBehaviour
 {
     [SerializeField] private int _distance = 4;
-    [SerializeField] private float _speed=2;
-    [SerializeField] private Player _player;
+    [SerializeField] private float _speed = 2;
+
     private Vector3 _targetPosition;
 
     private void Awake()
@@ -26,10 +26,10 @@ public class EnemyMover : MonoBehaviour
 
     private Vector3 GetNewPosition()
     { 
-        return (Random.insideUnitCircle * _distance) + (Vector2)_player.transform.position;
+        return Random.insideUnitCircle * _distance;
     }
 
-    public void Died()
+    public void Die()
     {
         Destroy(gameObject);
     }

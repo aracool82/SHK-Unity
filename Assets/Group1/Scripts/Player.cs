@@ -2,7 +2,7 @@
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float _speed=5;
+    [SerializeField] private float _speed = 5;
     [SerializeField] private GameLogic _gameLogic;
 
     private void Update()

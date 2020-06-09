@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8927022148034142842908edda89de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distance: 4
-  _speed: 2
+  _distance: 6
+  _speed: 6
   _player: {fileID: 1761935012}
 --- !u!212 &141422278
 SpriteRenderer:
@@ -408,11 +408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _endGame: {fileID: 1054253062}
   _player: {fileID: 1761935012}
-  _enemys:
-  - {fileID: 2083640149}
-  - {fileID: 1754708961}
-  - {fileID: 141422276}
-  - {fileID: 1578050037}
+  _enemies: []
   _distance: 0.3
 --- !u!1 &1054253062
 GameObject:
@@ -525,8 +521,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8927022148034142842908edda89de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distance: 4
-  _speed: 2
+  _distance: 6
+  _speed: 6
   _player: {fileID: 1761935012}
 --- !u!212 &1578050039
 SpriteRenderer:
@@ -622,8 +618,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8927022148034142842908edda89de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distance: 4
-  _speed: 2
+  _distance: 6
+  _speed: 6
   _player: {fileID: 1761935012}
 --- !u!212 &1754708963
 SpriteRenderer:
@@ -879,6 +875,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8927022148034142842908edda89de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distance: 4
-  _speed: 2
+  _distance: 6
+  _speed: 6
   _player: {fileID: 1761935012}
