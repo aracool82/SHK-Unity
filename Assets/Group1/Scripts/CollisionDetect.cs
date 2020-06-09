@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+
 public class CollisionDetect  : MonoBehaviour
 {
     [SerializeField] private Player _player;
