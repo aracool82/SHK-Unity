@@ -3,7 +3,7 @@ using UnityEngine.Events;
 public class CollisionDetect  : MonoBehaviour
 {
     [SerializeField] private Player _player;
-    [SerializeField] private float _distance = 0.3f;
+    [SerializeField] private float _distance = 0.9f;
 
     public event UnityAction<CollisionDetect> Collision;
 
@@ -13,10 +13,5 @@ public class CollisionDetect  : MonoBehaviour
         {
             Collision?.Invoke(this);
         }
-    }
-
-    public void Die()
-    {
-        Destroy(gameObject);
     }
 }
