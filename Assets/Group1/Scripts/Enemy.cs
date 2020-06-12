@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
-
-public class EnemyMover : MonoBehaviour
+using UnityEngine.Events;
+public class Enemy : MonoBehaviour
 {
     [SerializeField] private int _distance = 4;
     [SerializeField] private float _speed = 2;
-
     private Vector3 _targetPosition;
+    
+    public bool Alive { get; private set; } = true;
+    
+    public event UnityAction Dead;
 
     private void Awake()
     {
@@ -27,5 +30,12 @@ public class EnemyMover : MonoBehaviour
     private Vector3 GetNewPosition()
     { 
         return Random.insideUnitCircle * _distance;
+    }
+
+    public void Die()
+    {
+        Alive = false;
+        gameObject.SetActive(false);
+        Dead?.Invoke();
     }
 }

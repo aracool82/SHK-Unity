@@ -9,4 +9,10 @@ public class Player : MonoBehaviour
         var offset = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
         transform.Translate(offset * _speed * Time.deltaTime);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out Enemy enemy))
+            enemy.Die();
+    }
 }

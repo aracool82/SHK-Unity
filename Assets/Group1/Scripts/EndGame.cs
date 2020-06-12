@@ -2,39 +2,38 @@
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Collections;
+using System.Linq;
 
 public class EndGame : MonoBehaviour
 {
-    [SerializeField] private List<CollisionDetect> _enemies;
+    [SerializeField] private List<Enemy> _enemies;
     [SerializeField] private GameObject _finishSreen;
-    private int countCollision = 0;
 
     public IEnumerator ReloadScene()
     {
-        countCollision++;
-        if (countCollision == _enemies.Count)
-        { 
-            _finishSreen.SetActive(true);
-            yield return new WaitForSeconds(2f);
-            SceneManager.LoadScene(0);
-        }
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(0);
     }
 
-    private void OnCollision(CollisionDetect enemy)
+    private void OnDead()
     {
-        enemy.gameObject.SetActive(false);
-        StartCoroutine(ReloadScene());
+        var countAliveEnemy = _enemies.Count(enemy => enemy.Alive == true);
+        if (countAliveEnemy == 0)
+        {
+            _finishSreen.SetActive(true);
+            StartCoroutine(ReloadScene());
+        }
     }
 
     private void OnEnable()
     {
         foreach (var enemy in _enemies)
-            enemy.Collision += OnCollision;
+            enemy.Dead += OnDead;
     }
 
     private void OnDisable()
     {
         foreach (var enemy in _enemies)
-            enemy.Collision -= OnCollision;
+            enemy.Dead -= OnDead;
     }
 }
